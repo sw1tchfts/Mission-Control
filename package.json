@@ -1,0 +1,10 @@
+{
+  "name": "mission-control",
+  "version": "1.0.0",
+  "description": "A very simple task tracker that runs in the browser.",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "test": "node --test"
+  }
+}

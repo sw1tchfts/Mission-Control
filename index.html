@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mission Control</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Mission Control</h1>
+        <p class="subtitle">A very simple task tracker</p>
+      </header>
+
+      <form id="new-task-form" class="new-task" autocomplete="off">
+        <input id="new-task-input" type="text" placeholder="What needs doing?" aria-label="New task" maxlength="200" />
+        <button type="submit">Add</button>
+      </form>
+
+      <div class="filters" role="group" aria-label="Show">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="active" aria-pressed="false">Active</button>
+        <button type="button" data-filter="done" aria-pressed="false">Done</button>
+      </div>
+
+      <ul id="task-list" class="task-list"></ul>
+      <p id="empty" class="empty" hidden></p>
+
+      <footer id="summary" class="summary" hidden>
+        <span id="task-count"></span>
+        <button id="clear-done" type="button" class="link" hidden>Clear done</button>
+      </footer>
+    </main>
+
+    <script src="tasks.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
