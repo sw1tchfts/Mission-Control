@@ -3,37 +3,61 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
     <title>Mission Control</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="app">
-      <header>
-        <h1>Mission Control</h1>
-        <p class="subtitle">A very simple task tracker</p>
-      </header>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark"><span data-icon="check"></span></span>
+          Mission Control
+        </div>
+        <nav aria-label="Sections">
+          <div class="nav-item is-active" aria-current="page">
+            <span data-icon="target"></span>
+            <span class="nav-label">Tasks</span>
+            <span id="badge-overdue" class="badge badge-danger" hidden></span>
+            <span id="badge-today" class="badge" hidden></span>
+          </div>
+        </nav>
+      </aside>
 
-      <form id="new-task-form" class="new-task" autocomplete="off">
-        <input id="new-task-input" type="text" placeholder="What needs doing?" aria-label="New task" maxlength="200" />
-        <button type="submit">Add</button>
-      </form>
+      <main class="main">
+        <header class="main-header">
+          <h1>Tasks</h1>
+          <div class="toolbar">
+            <div class="segmented" role="group" aria-label="View">
+              <button type="button" data-view="list" aria-pressed="true"><span data-icon="list"></span>List</button>
+              <button type="button" data-view="calendar" aria-pressed="false"><span data-icon="calendar"></span>Calendar</button>
+            </div>
+            <div class="toolbar-actions">
+              <button id="filter-button" class="button" type="button" aria-haspopup="dialog" title="Filter and search (/)">
+                <span data-icon="filter"></span>Filter<span id="filter-count" class="filter-count" hidden></span>
+              </button>
+              <button id="new-task" class="button button-accent" type="button" title="New task (N)">
+                <span data-icon="plus"></span>New Task
+              </button>
+            </div>
+          </div>
+        </header>
+        <div id="content" class="content"></div>
+      </main>
 
-      <div class="filters" role="group" aria-label="Show">
-        <button type="button" data-filter="all" aria-pressed="true">All</button>
-        <button type="button" data-filter="active" aria-pressed="false">Active</button>
-        <button type="button" data-filter="done" aria-pressed="false">Done</button>
-      </div>
+      <aside id="detail" class="detail" aria-label="Task details" hidden></aside>
+    </div>
 
-      <ul id="task-list" class="task-list"></ul>
-      <p id="empty" class="empty" hidden></p>
+    <div id="toasts" class="toasts" aria-live="polite"></div>
 
-      <footer id="summary" class="summary" hidden>
-        <span id="task-count"></span>
-        <button id="clear-done" type="button" class="link" hidden>Clear done</button>
-      </footer>
-    </main>
-
-    <script src="tasks.js"></script>
-    <script src="app.js"></script>
+    <script src="src/dates.js"></script>
+    <script src="src/tasks.js"></script>
+    <script src="src/ui.js"></script>
+    <script src="src/attachments.js"></script>
+    <script src="src/store.js"></script>
+    <script src="src/list-view.js"></script>
+    <script src="src/calendar-view.js"></script>
+    <script src="src/detail-panel.js"></script>
+    <script src="src/app.js"></script>
   </body>
 </html>
